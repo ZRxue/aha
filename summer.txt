@@ -1,0 +1,348 @@
+
+day2
+文本中间对齐 vertical-align：middle；
+结构性伪类选择器 button：nth-of-type() ->第几个元素；
+圆角边框属性：border-radius:顺时针；
+
+背景图片不重复：background-repeat：no-repea；
+图片居中：background-position：left bottom ；background-position：center center ；
+按最小间距把图片全部占满盒子，图片完整：background-size：contain；
+把图片全部占满盒子，图片不一定完整：background-size：cover；
+
+
+
+afternoon
+定位：固定在屏幕某位置。position
+1，固定定位（会脱离文档流，宽度变成内容的实际大小，以浏览器的可视窗口作为参考）：
+	position：fixed；
+【父相子绝】
+2，绝对定位（解决层叠问题）:
+	1)完全脱离文档流
+	2）释放原本文档流中的控件，及当前元素后面的空间
+	3）内容的大小会缩水
+·	4）如果所有父元素都没有定位的情况，以body的左上角作为原点参考，否则以父元素作为参考。
+3，相对定位（）
+	1）不脱离文档流
+	2）内容大小不变
+	3）以原本正常文档流作为参考
+	4）主要目的：给子元素提供参考/调整层级
+
+
+4，层级：谁有定位，谁层级高；都有定位，按先后顺序重叠（谁后定位，谁在上面）
+	可通过属性调整：z-index：（-1-9999），默认值是0；
+快捷键：ul><li img $(n‘图片数量’)>
+
+轮播效果（js）:
+
+
+
+day3:
+1:去除多个指定标签某属性
+nth-of-type（n+1之类的关系式）
+2：放大缩小特效
+指代：header >.main>li>img(特指li)
+后代：header .main li img（li里的所有img）
+
+<ul>
+<li ...>
+<div class=“mask”>
+<img src="" alt="">
+<div>
+<li>
+<ul>
+
+<style>
+
+.mask{
+width:100%;
+height:100%;
+position：absolute;
+left:0;
+top:0;
+background:;
+/*透明度*/
+opacity:0;
+transition:0.3s;
+
+}
+
+li:hover .mask{
+opacity:1;
+}
+
+.mask img{
+
+position:absolute;
+left:calc(50% -8px);
+top:calc(50% -8px);
+/*变换：放大（x轴倍数，y轴倍数）*/
+transition：scale（8,8）;
+
+}
+
+
+JS:
+1)新建js文件
+2）var：声明变量
+alert：弹出变量值
+console.log（）；控制台输出
+
+JavaScript五种基本数据类型（也叫做简单数据类型）
+分别为：undefined、null、bolean、number、string；
+一种复杂的数据类型：object.
+
+判断数据类型：typeof
+
+运算符：
+1）算数运算符 + - * /  %  ++ --
+(加号在全部是数字的情况下可以计算，其他情况下做拼接)
+（其他符号在操作时，先做隐式转换，
+例如：字符串c=‘10’，在计算时可以转换成是10）
+若转换不了，则输出NaN （Not a Number）
+
+例：var a=1504,b=10,c='2'
+console.log('0'+a+b-c+5)//150413
+
+var num=n(数字)；
+var h=0,m=0,s=0;
+h=parseInt(num&3600);
+m=parseInt(num%3600/60);
+s=num%3600%60
+console.log(“小时：分钟：秒”+h+m+s);
+输时间
+
+2）运算符
+b=a++//先将值给B，再自加
+b=++a//先自加，再给值
+
+3）赋值运算符
+= += -= *= /= %=
+a+=1//a=a+1
+
+4）比较运算符  返回布尔值
+==, ===, !=, !==, >, <, >=, <=
+
+5）逻辑运算符
+&& ,||,!
+
+
+after
+1）三目 三元
+//条件？语句1：语句2（如果满足条件执行语句以，如果不满足执行语句2）
+例：varmoney=50；
+money>100?alert('买'):alert('不买'); 
+2）分支
+(1)（if（条件）{} else if{}else{}）
+//输入框
+var inp=windows.prompt('输入框提示消息')
+console.log（inp);
+(2)switch(){case:  break;}
+
+3）循环
+例：var ul=document.getElementsByTagName('ul')[0]
+for(var i=0;i<=0;i++){
+ul.innerHTML+='<li>\<img src="" alt="">\</li>'
+}
+
+1，先验证再循环
+var a=1;
+while(a<=100){
+console.log("")
+a++
+}while(a>10)
+
+2，先循环再验证
+（1)var a=1
+do{
+console.log("")
+a++
+}while(a>10)
+
+（2)for(i=0;i<100;i++){
+console.log("")
+}
+
+4)数组（arr=[]）
+（1）部分指令
+arr.push(内容)在数组最后添加
+.unshift(内容)在数组最前添加
+.pop（）最后删除
+.shift()最前删除
+指定位置删除，添加，替换
+.splice(开始下标，删除个数，添加内容)
+.splice（1,1，‘哈哈’）替换：删除第一个下标开始的一个值，再加哈哈
+
+（2）数组数据排序,输出最大值和最小值
+例：var arr=[34,5,654,34,243,43,89,76]
+arr.sort(function(a,b){
+return a-b
+})
+console.log(arr[0]，err[arr.length-1])
+
+var sum=0
+for(var i=0;i<=arr.length;i++){
+sum=sum+arr[i]
+}
+
+(3)随机数
+
+
+5）函数(参数 返回值)
+形参，实参
+
+function sum（）{
+var s=0
+for（var i=0；i<arguments.length;i++）{
+s=s+arguments[i]
+}
+
+consol.log（arguments）//函数的所有形参：类数组
+}
+sum（1,2,3,4,5）
+sum（1,2,3,4,5,6,7,8）
+
+返回值：return
+返回值只能返回一个，有多个参数是可用数组,例：return [a,b]
+
+
+6）函数的调用
+function
+局部变量和全局变量
+函数的递归调用
+例：斐波拉契数组
+
+时间对象
+例：时钟
+var d=new Date()
+console.log(d.getFullYear())
+console.log('0'+(d.getMonth()+1))
+console.log(d.getDate())
+console.log(d.getHours())
+console.log(d.getMinutes())
+console.log(d.getSeconds())
+
+//封装一个函数 传入指定字符 显示日期
+function time（mySymbol）{
+var date=newDate（）
+var y=date.getFullYear()
+var m=date.getMonth()+1
+if(m<10){
+m='0'+m}
+}
+var d=date.getDate()
+var hh=date.getHours()
+var mm=date.getMinutes()
+var ss=date.getSeconds()
+return y+mySymbol+m+mySymbol+d+" "+hh+" "+mm+" "+ss
+}
+document.write(time('')
+
+//重复执行
+//setInterval(函数，时间)
+
+var d=10
+var timer=null
+timer=setInterval(functiion(){
+d--
+console.log(d)
+if(d<=0){
+clearInterval(timer)//清除定时器
+}
+},1000)
+
+
+
+ 获取网页元素
+1,子元素
+var allNode=document.body.childNodes//子元素  包含换行符
+    
+var allNode=document.body.children//子元素 只包含元素节点
+   
+console.log(allNode)
+console.log(allNode[0])
+
+var btn=allNode[0].children
+
+console.log(btn[1])
+
+2,兄弟元素
+var allNode=document.body.children[0].children
+console.log(allNode[0].nextElementSibling)//上一个兄弟
+console.log(allNode[1].parentElementSibling)//下一个
+
+3,父元素
+var btn=document.body.children[0].children[0]
+console.log(btn.parentNode.parentNode)//父元素
+
+4,指定方式获取
+var btn=document.getElementsByName("button")//通过元素名
+console.log(btn[0])
+var li=document.getElementsByName('li')
+console.log('li')
+
+btn[0].onclick=function(){
+    console.log('点击设置以下li')
+    li[1].style.background='red'
+    li[1].style.color='white'
+}
+
+通过ID  .getElementByID
+通过类名  .getElementByClasName
+.querySelector('')//取出来的是唯一一个，第一个
+.querySelectorAll('')//获取所有节点
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
